@@ -11,6 +11,9 @@ public class FileWriter {
             java.io.FileWriter fileWriter = new java.io.FileWriter("src/main/resources/transactions.csv", true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
+
+            //use transaction to String to write
+
             //this \n is to put the info on a new line
             bufferedWriter.write("\n90|Bob Jones|40|10.25");
 
