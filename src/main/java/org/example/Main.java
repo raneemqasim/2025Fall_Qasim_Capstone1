@@ -1,16 +1,23 @@
 package org.example;
 
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        //homeMenu
+        //make sure there is a way out of this while loop
+        //does the while loop need to be in a try catch block?
         while(true){
+
+            //homeMenu
             System.out.println("Welcome to the Accounting App!");
             System.out.println("Please pick from the following options:");
             System.out.println("1) Add Deposit");
@@ -21,6 +28,7 @@ public class Main {
 
             switch (homeMenuInput){
                 case "1":
+
                     //add deposit
                     System.out.println("Please fill out the following info:");
                     System.out.println("Description");
@@ -30,9 +38,12 @@ public class Main {
                     System.out.println("Amount");
                     double amountDeposit = scanner.nextDouble();
 
-                    new Transaction(LocalDate.now(), LocalTime.now(), descriptionDeposit, vendorDeposit, amountDeposit);
+                    Transaction deposit =  new Transaction(LocalDate.now(), LocalTime.now(), descriptionDeposit, vendorDeposit, amountDeposit);
+                    FileManager.writeTransactions(deposit);
 
-                    //file writer to write the transaction object?
+                    System.out.println("Your deposit has been added to the file!");
+
+                    break;
 
                 case "2":
                     //make payment
@@ -44,9 +55,12 @@ public class Main {
                     System.out.println("Amount");
                     double amountPayment = -scanner.nextDouble();
 
-                    new Transaction(LocalDate.now(), LocalTime.now(), descriptionPayment, vendorPayment, amountPayment);
+                    Transaction payment =  new Transaction(LocalDate.now(), LocalTime.now(), descriptionPayment, vendorPayment, amountPayment);
+                    FileManager.writeTransactions(payment);
 
-                    //how do we add to the file???
+                    System.out.println("Your payment has been added to the file!");
+
+                    break;
 
                 case "3":
                     //ledger
@@ -59,22 +73,41 @@ public class Main {
 
                     switch(ledgerInput){
                         case "1":
-                            //some arraylist that shows all entries
+                            Ledger.displayAll();
+                            break;
+
                         case "2":
-                            //an if statement and array list of only deposits, if greater than 0
+                            Ledger.displayDeposits();
+                            break;
+
                         case "3":
-                            //if statement and  array list of payments, if less than 0
+                            Ledger.displayPayments();
+                            break;
+
                         case "4":
-                            //reports lollll
+                            //reports menu
+
+
+                            Ledger.displayReports();
+                            break;
+
+                        default:
+                            System.out.println("Please pick a number 1-4");
+                            break;
+
                     }
 
                 case "4":
                     break;
+
+                default:
+                    System.out.println("Please pick a number 1-4");
+                    break;
             }
 
-            //try catch for weird inputs
-            //switch case inputs
 
+
+            //try catch for weird inputs
 //            try {
 //                int homeMenuInput = Integer.parseInt(scanner.nextLine());
 //            } catch (InputMismatchException ex) {
@@ -83,4 +116,5 @@ public class Main {
 
         }
     }
+    //we could put some methods here that show us our menus
 }
