@@ -24,8 +24,10 @@ public class FileManager {
 
             while ((line = reader.readLine()) != null) {
                 String[] transactionData = line.split("\\|");
-                //0 date, 1 time, 2 description, 3 vendor, 4 amount
+
                 Transaction newTransaction = new Transaction();
+                //0 date, 1 time, 2 description, 3 vendor, 4 amount
+
                 newTransaction.setDate(LocalDate.parse(transactionData[0]));
                 newTransaction.setTime(LocalTime.parse(transactionData[1]));
                 newTransaction.setDescription(transactionData[2]);
@@ -36,7 +38,7 @@ public class FileManager {
                 allTransactions.add(newTransaction);
             }
 
-            //close the reader for security, make sure it is outside of the while loop
+            //close the reader for security, make sure it is outside the while loop
             reader.close();
         }
         catch(

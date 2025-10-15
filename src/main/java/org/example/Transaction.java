@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 //POJO
-//Do we need to leave these properties unassigned for the file reader and writer to work?
 public class Transaction {
     private LocalDate date;
     private LocalTime time;
@@ -20,7 +19,7 @@ public class Transaction {
         this.amount = amount;
     }
 
-    //this constructor is for use by the fileManager
+    //this constructor is left empty for use by the fileManager
     public Transaction(){
 
     }
