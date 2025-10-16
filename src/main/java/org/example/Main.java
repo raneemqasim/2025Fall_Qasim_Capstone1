@@ -35,7 +35,7 @@ public class Main {
                     System.out.println("Vendor");
                     String vendorDeposit = scanner.nextLine();
                     System.out.println("Amount (with 2 decimal places)");
-                    double amountDeposit = scanner.nextDouble();
+                    double amountDeposit = Double.parseDouble(scanner.nextLine());
 
                     Transaction deposit =  new Transaction(LocalDate.now(), LocalTime.now(), descriptionDeposit, vendorDeposit, amountDeposit);
                     FileManager.writeTransactions(deposit);
@@ -52,7 +52,7 @@ public class Main {
                     System.out.println("Vendor");
                     String vendorPayment = scanner.nextLine();
                     System.out.println("Amount (with 2 decimal places)");
-                    double amountPayment = -scanner.nextDouble();
+                    double amountPayment = -Double.parseDouble(scanner.nextLine());
 
                     Transaction payment =  new Transaction(LocalDate.now(), LocalTime.now(), descriptionPayment, vendorPayment, amountPayment);
                     FileManager.writeTransactions(payment);
@@ -91,45 +91,52 @@ public class Main {
                             System.out.println("2) Previous Month");
                             System.out.println("3) Year to Date");
                             System.out.println("4) Previous Year");
-                            System.out.println("5) Search by Vendor");
                             System.out.println("0) Go back");
                             String reportsInput = scanner.nextLine();
 
                             switch (reportsInput){
                                 case "1":
                                     Ledger.monthToDate();
+                                    break;
 
                                 case "2":
                                     Ledger.previousMonth();
+                                    break;
 
                                 case "3":
                                     Ledger.yearToDate();
+                                    break;
 
                                 case "4":
                                     Ledger.previousYear();
-
-                                case "5":
-                                    //search by vendor method
+                                    break;
 
                                 case "0":
                                     break;
 
                                 default:
-                                    System.out.println("Please pick a number from 0-5");
+                                    System.out.println("Please pick a number from 0-4");
+                                    break;
                             }
+
+                            break;
 
                         case "0":
                             break;
 
                     default:
                         System.out.println("Please pick a number 0-4");
+                        break;
                     }
+                    break;
 
                 case "4":
                     running = false;
+                    break;
 
                 default:
                     System.out.println("Please pick a number 1-4");
+                    break;
             }
 
 
