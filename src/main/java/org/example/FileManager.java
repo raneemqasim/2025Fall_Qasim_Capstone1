@@ -26,8 +26,8 @@ public class FileManager {
                 String[] transactionData = line.split("\\|");
 
                 Transaction newTransaction = new Transaction();
-                //0 date, 1 time, 2 description, 3 vendor, 4 amount
 
+                //0 date, 1 time, 2 description, 3 vendor, 4 amount
                 newTransaction.setDate(LocalDate.parse(transactionData[0]));
                 newTransaction.setTime(LocalTime.parse(transactionData[1]));
                 newTransaction.setDescription(transactionData[2]);

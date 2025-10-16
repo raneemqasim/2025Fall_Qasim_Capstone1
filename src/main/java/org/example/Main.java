@@ -1,7 +1,5 @@
 package org.example;
 
-
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
@@ -10,9 +8,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-
-        //does the while loop need to be in a try catch block?
-        //I am not understanding how to use while(true) vs while running = true?
         boolean running = true;
 
         while(running){
@@ -138,15 +133,6 @@ public class Main {
                     System.out.println("Please pick a number 1-4");
                     break;
             }
-
-
-            //try catch for weird inputs
-            // try {
-            // int homeMenuInput = Integer.parseInt(scanner.nextLine());
-            // } catch (InputMismatchException ex) {
-            // System.out.println("Please type in a number");
-            // }
-
         }
     }
     //we could put some methods here that show us our menus
