@@ -52,7 +52,6 @@ public class Ledger {
             LocalDate currentDate = LocalDate.now();
             Month currentMonth = currentDate.getMonth();
 
-            // and is && or is ||
             if ((dateOfTransaction.isBefore(currentDate) || dateOfTransaction.equals(currentDate)) && currentMonth == monthOfTransaction) {
                 System.out.println(transaction.toString());
             }

@@ -3,7 +3,6 @@ package org.example;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-//POJO
 public class Transaction {
     private LocalDate date;
     private LocalTime time;

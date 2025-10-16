@@ -70,6 +70,5 @@ public class FileManager {
         catch(IOException ex){
             System.out.println("Something went wrong with the file, try again.");
         }
-
     }
 }
