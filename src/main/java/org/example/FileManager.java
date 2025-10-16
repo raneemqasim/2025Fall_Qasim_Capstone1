@@ -61,7 +61,7 @@ public class FileManager {
             java.io.FileWriter fileWriter = new java.io.FileWriter("src/main/resources/transactions.csv", true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-            //we are gonna write the transaction that we put in the argument as a string
+            //we will write the transaction that we put in the argument as a string
             bufferedWriter.write("\n" + transaction.toString());
 
             //close it for security
